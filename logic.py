@@ -1,6 +1,6 @@
 # limits to stop iteration
-limit_max = 10**4
-limit_min = 0.001
+limit_max = 10**8
+limit_min = 0.00001
 n_max = 200
 
 #color palete (110 colors)
@@ -179,9 +179,9 @@ def colorDiverged(cords):
     global limit_max
     global limit_min
     global color
-    
-    if max(cords[X]) > limit_max or max(cords[Y]) > limit_max or len(cords[X]) > n_max:
-        return color[int((len(cords[X]) / len(color)) * len(cords[X]))]
+
+    if max(cords[X]) > limit_max or max(cords[Y]) > limit_max or (len(cords[X]) > n_max and min(cords[X]) < limit_min):
+        return color[int((len(color) / n_max) * len(cords[X])) - 1]
     else:
         return (0,0,0)
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'MainWindow.ui'
+# Form implementation generated from reading ui file '.\MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -14,13 +14,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(641, 497)
+        MainWindow.resize(800, 641)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.centralWidget.sizePolicy().hasHeightForWidth())
         self.centralWidget.setSizePolicy(sizePolicy)
+        self.centralWidget.setMinimumSize(QtCore.QSize(800, 600))
         self.centralWidget.setObjectName("centralWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralWidget)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -36,27 +42,24 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.QPlotWidget)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.dial_2 = QtWidgets.QDial(self.centralWidget)
+        self.label = QtWidgets.QLabel(self.centralWidget)
+        self.label.setObjectName("label")
+        self.horizontalLayout.addWidget(self.label)
+        self.radioButton = QtWidgets.QRadioButton(self.centralWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dial_2.sizePolicy().hasHeightForWidth())
-        self.dial_2.setSizePolicy(sizePolicy)
-        self.dial_2.setObjectName("dial_2")
-        self.horizontalLayout.addWidget(self.dial_2)
-        self.dial = QtWidgets.QDial(self.centralWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dial.sizePolicy().hasHeightForWidth())
-        self.dial.setSizePolicy(sizePolicy)
-        self.dial.setObjectName("dial")
-        self.horizontalLayout.addWidget(self.dial)
+        sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
+        self.radioButton.setSizePolicy(sizePolicy)
+        self.radioButton.setMinimumSize(QtCore.QSize(80, 40))
+        self.radioButton.setIconSize(QtCore.QSize(35, 35))
+        self.radioButton.setObjectName("radioButton")
+        self.horizontalLayout.addWidget(self.radioButton)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.verticalLayout_2.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 30))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -69,4 +72,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.radioButton.setText(_translate("MainWindow", "Auto"))
 from pyqtgraph import PlotWidget
